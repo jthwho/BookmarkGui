@@ -36,4 +36,5 @@ src/envgui
 src/Makefile
 Makefile
 .qmake.stash
+*.pro.user
 

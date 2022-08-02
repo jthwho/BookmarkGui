@@ -122,7 +122,7 @@ void XMLParser::parseError(int pt, const QString &msg) {
 void XMLParser::parseErrorInt(const char *str, int pt, const QString &msg) {
 	int line, lchar;
 	findCharLocation(str, pt, line, lchar);
-	QString err = msg + QString().sprintf(" at line %d, char %d", line, lchar);
+    QString err = msg + QString(" at line %1, char %2").arg(line).arg(lchar);
 	parseError(pt, err);
 	return;
 }

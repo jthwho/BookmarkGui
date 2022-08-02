@@ -8,7 +8,7 @@
 #include <QUrl>
 #include <QMimeData>
 #include <QStringList>
-#include <QWebSettings>
+//#include <QWebSettings>
 #include "bookmarkrootitem.h"
 #include "xml.h"
 #include "faviconstore.h"
@@ -114,7 +114,7 @@ QMimeData *BookmarkRootItem::mimeData(const QModelIndexList &list) const {
                 QString url = item->url();
                 if(!url.isEmpty()) urls += url;
                 if(!uuids.isEmpty()) uuids += " ";
-                uuids += item->uuid().toString();
+                uuids += item->uuid().toString().toLatin1();
         }
         QMimeData *ret = new QMimeData;
         if(!urls.isEmpty()) ret->setUrls(urls);
@@ -129,9 +129,9 @@ bool BookmarkRootItem::dropMimeData(const QMimeData *data, Qt::DropAction, int r
         if(parentItem == NULL) return false;
         if(!parentItem->mayBeFolder()) return false;
         if(data->hasFormat(MIMETYPE_UUIDLIST)) {
-                QStringList list = QString(data->data(MIMETYPE_UUIDLIST)).split(" ", QString::SkipEmptyParts);
+                QStringList list = QString(data->data(MIMETYPE_UUIDLIST)).split(" ");
                 for(int i = 0; i < list.size(); i++) {
-                        BookmarkItem *item = findNodeByUUID(list.at(i));
+                        BookmarkItem *item = findNodeByUUID(QUuid::fromString(list.at(i)));
                         if(item == NULL) continue;
                         item->setParent(parentItem, row - 1);
                         row++;

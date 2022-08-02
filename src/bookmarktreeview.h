@@ -10,7 +10,7 @@
 #include <QTreeView>
 
 class QUuid;
-class QStringList;
+//class QStringList;
 class BookmarkItem;
 class BookmarkRootItem;
 

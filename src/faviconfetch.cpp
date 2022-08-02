@@ -67,7 +67,7 @@ void FaviconFetch::requestNextImage(const QUuid &uuid, const QUrl &url, QStringL
 
 void FaviconFetch::accessFinished(QNetworkReply *reply) {
         QNetworkRequest r = reply->request();
-        QUuid uuid = r.attribute(ATTR_UUID).toString();
+        QUuid uuid = QUuid::fromString(r.attribute(ATTR_UUID).toString());
         QUrl url = r.attribute(ATTR_URL).toUrl();
         int state = r.attribute(ATTR_STATE).toInt();
         QStringList imageList = r.attribute(ATTR_IMAGE_LIST).toStringList();

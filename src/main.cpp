@@ -6,7 +6,7 @@
 
 
 #include <QApplication>
-#include <QWebSettings>
+//#include <QWebSettings>
 #include <stdio.h>
 #include "mainobject.h"
 #include "lockfile.h"
