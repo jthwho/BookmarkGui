@@ -91,14 +91,14 @@ inline static QString escapeize(const QString &str) {
 	// Do a quick check to see if there is anything to sanitize
 	int len = str.length();
 	int icc = 0;
-	for(int i = 0; i < len; i++) if(isIllegal(str[i].toAscii())) icc ++;
+	for(int i = 0; i < len; i++) if(isIllegal(str[i].toLatin1())) icc ++;
 	if(!icc) return str;
 
 	// Ok- sanitize!
 	QByteArray buf;
         buf.reserve(len + icc * 7);
 	for(int i = 0; i < len; i++) {
-		char c = str[i].toAscii();
+		char c = str[i].toLatin1();
 
 		switch(c) {
 			case '&':  buf += "&amp;"; break;
@@ -317,7 +317,7 @@ bool XMLNode::toFile(const QString &fname) const {
 	if(val.isNull()) return false;
 	QFile file(fname);
 	if(!file.open(QIODevice::WriteOnly)) return false;
-	file.write(val.toAscii());
+	file.write(val.toLatin1());
 	return true;
 }
 

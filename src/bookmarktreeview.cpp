@@ -145,7 +145,7 @@ void BookmarkTreeView::addToExpandList(QStringList &list, const BookmarkItem *it
         if(item->children().isEmpty()) return;
         if(item != rootItem()) {
                 if(!isExpanded(rootItem()->indexFromItem((BookmarkItem *)item, 0))) return;
-                list += item->uuid();
+                list += item->uuid().toString();
         }
         for(int i = 0; i < item->children().size(); i++) {
                 addToExpandList(list, item->children().at(i));

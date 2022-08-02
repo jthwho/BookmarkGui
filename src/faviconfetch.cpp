@@ -13,9 +13,9 @@
 #include <QIcon>
 #include <QVariant>
 #include <QStringList>
-#include <QWebPage>
-#include <QWebFrame>
-#include <QWebElement>
+//#include <QWebPage>
+//#include <QWebFrame>
+//#include <QWebElement>
 
 #include "faviconfetch.h"
 #include "xml.h"
@@ -95,6 +95,7 @@ void FaviconFetch::accessFinished(QNetworkReply *reply) {
                 _net->get(req);
                 return;
         }
+	/*
         if(state == STATE_GET_HTML) {
                 QWebPage page;
                 page.settings()->setAttribute(QWebSettings::AutoLoadImages, false);
@@ -125,7 +126,9 @@ void FaviconFetch::accessFinished(QNetworkReply *reply) {
                 requestNextImage(uuid, url, imageList);
                 return;
 
-        } else if(state == STATE_GET_IMAGE) {
+        } else 
+	*/
+	if(state == STATE_GET_IMAGE) {
                 QPixmap pixmap;
                 if(pixmap.loadFromData(reply->readAll())) {
                         qDebug() << "SUCCESS" << url;

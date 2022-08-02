@@ -82,7 +82,7 @@ BookmarkRootItem::BookmarkRootItem(QObject *p) :
         _faviconStore = new FaviconStore(this);
         connect(_faviconStore, SIGNAL(lookupDone(const QUuid &, const QUrl &, const QIcon &)),
                 this, SLOT(faviconLoaded(const QUuid &, const QUrl &, const QIcon &)));
-        setSupportedDragActions(Qt::CopyAction | Qt::MoveAction);
+        //setSupportedDragActions(Qt::CopyAction | Qt::MoveAction);
 }
 
 XML BookmarkRootItem::toXML() const {

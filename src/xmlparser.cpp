@@ -518,7 +518,7 @@ inline bool XMLParser::getNodes(const char *str, int len) {
 }
 
 bool XMLParser::parse(const QString &s) {
-	return parse(s.toAscii());
+	return parse(s.toLatin1());
 }
 
 bool XMLParser::parse(const QByteArray &s) {

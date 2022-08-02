@@ -3,7 +3,7 @@ CONFIG += qt
 CONFIG += debug
 #CONFIG += model_test
 #CONFIG += debug_and_release build_all
-QT += gui webkit network
+QT += gui widgets webkit network
 
 build_pass:CONFIG(debug, debug|release) {
         TARGET = envgui_debug
