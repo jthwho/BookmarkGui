@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+        <qresource>
+                <file>res/default.ico</file>
+                <file>res/folder.png</file>
+                <file>res/gear.png</file>
+        </qresource>
+</RCC>
